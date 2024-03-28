@@ -7,9 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class AppService {
   constructor(private httpClient: HttpClient) {}
 
-  private readonly apiUrl = 'https://localhost:7245/HelloWorld';
+  private readonly apiUrl = 'https://localhost:7245/Person';
 
-  public GetMessage() {
-    return this.httpClient.get(this.apiUrl, { responseType: 'text' });
+  public GetPerson(name: string) {
+    return this.httpClient.get(`${this.apiUrl}/${name}`, {
+      responseType: 'text',
+    });
   }
 }
