@@ -1,1 +1,30 @@
-<h2>{{ title$ | async }}</h2>
+<ng-template #CreateNewUser>
+  <h1>Add a name</h1>
+  <div>
+    <form #personForm="ngForm" (ngSubmit)="CreateNewPerson(personForm.value)">
+      <label>Name</label>
+      <input type="text" name="personName" ngModel />
+
+      <label>Quote</label>
+      <input type="text" name="quote" ngModel />
+
+      <input type="submit" value="Add person" />
+    </form>
+  </div>
+</ng-template>
+
+<!-- <div *ngFor="let person of people">
+  <p>Name: {{ person.personName }}</p>
+  <p>Quote: {{ person.quote }}</p>
+</div> -->
+
+<h2>Learn Ng Template</h2>
+<ng-template #myExampleTemplate>
+  <h3>This is a template</h3>
+  <p>This is an example paragraph to under ng-template</p>
+</ng-template>
+
+<!--ng template outlet directive-->
+
+<div *ngTemplateOutlet="myExampleTemplate"></div>
+<div *ngTemplateOutlet="CreateNewUser"></div>

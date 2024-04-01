@@ -10,4 +10,6 @@ import { PersonComponent } from './person/person.component';
   styleUrl: './app.component.scss',
   imports: [RouterOutlet, CommonModule, PersonComponent],
 })
-export class AppComponent {}
+export class AppComponent {
+  people: any;
+}
