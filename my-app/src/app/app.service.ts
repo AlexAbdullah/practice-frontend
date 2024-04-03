@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Person } from './models/person';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class AppService {
     return this.httpClient.post(this.apiUrl, person);
   }
 
-  public GetAllPeople() {
-    return this.httpClient.get(this.apiUrl);
+  public GetAllPeople(): Observable<Person[]> {
+    return this.httpClient.get<Person[]>(this.apiUrl);
   }
 }

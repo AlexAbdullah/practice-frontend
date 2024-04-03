@@ -1,30 +1,11 @@
-<ng-template #CreateNewUser>
-  <h1>Add a name</h1>
-  <div>
-    <form #personForm="ngForm" (ngSubmit)="CreateNewPerson(personForm.value)">
-      <label>Name</label>
-      <input type="text" name="personName" ngModel />
+<!-- <label>Create new user?</label> -->
+<input type="button" value="Create a user" (click)="Create()" />
+<input type="button" value="Get all users" (click)="Get()" />
 
-      <label>Quote</label>
-      <input type="text" name="quote" ngModel />
+<ng-container *ngIf="showGetPeopleControl">
+  <app-get-person></app-get-person>
+</ng-container>
 
-      <input type="submit" value="Add person" />
-    </form>
-  </div>
-</ng-template>
-
-<!-- <div *ngFor="let person of people">
-  <p>Name: {{ person.personName }}</p>
-  <p>Quote: {{ person.quote }}</p>
-</div> -->
-
-<h2>Learn Ng Template</h2>
-<ng-template #myExampleTemplate>
-  <h3>This is a template</h3>
-  <p>This is an example paragraph to under ng-template</p>
-</ng-template>
-
-<!--ng template outlet directive-->
-
-<div *ngTemplateOutlet="myExampleTemplate"></div>
-<div *ngTemplateOutlet="CreateNewUser"></div>
+<ng-container *ngIf="showCreatePersonControl">
+  <app-create-person></app-create-person>
+</ng-container>

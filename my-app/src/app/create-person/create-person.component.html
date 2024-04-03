@@ -1,0 +1,17 @@
+<div>
+  <p>Add a Person</p>
+</div>
+<div>
+  <form #personForm="ngForm" (ngSubmit)="CreateNewPerson(personForm.value)">
+    <label>Name</label>
+    <div>
+      <input type="text" name="personName" ngModel />
+    </div>
+    <label>Quote</label>
+    <div>
+      <input type="text" name="quote" ngModel />
+    </div>
+
+    <input type="submit" value="Add person" />
+  </form>
+</div>

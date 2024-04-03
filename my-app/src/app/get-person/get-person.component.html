@@ -1,0 +1,15 @@
+<div>
+  <ul>
+    <li *ngFor="let person of people">
+      <div>
+        {{ person.personName }}
+      </div>
+      <div>
+        {{ person.quote }}
+      </div>
+    </li>
+  </ul>
+</div>
+<button *ngIf="showClearButton()" type="button" (click)="clearList()">
+  Clear All
+</button>

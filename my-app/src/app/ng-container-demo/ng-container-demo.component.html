@@ -1,0 +1,11 @@
+<ng-container *ngIf="showNgTemplateDemo">
+  <h2>Learn Ng Template</h2>
+  <ng-template #myExampleTemplate>
+    <h3>This is a template</h3>
+    <p>This is an example paragraph to under ng-template</p>
+  </ng-template>
+
+  <div *ngTemplateOutlet="myExampleTemplate"></div>
+</ng-container>
+
+<app-ng-container-demo></app-ng-container-demo>
