@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AppService } from '../app.service';
 import { Observable, take } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Person } from '../models/person';
 import { FormsModule } from '@angular/forms';
 import { CreatePersonComponent } from '../create-person/create-person.component';
 import { GetPersonComponent } from '../get-person/get-person.component';
@@ -19,21 +18,23 @@ import { GetPersonComponent } from '../get-person/get-person.component';
   ],
 })
 export class PersonComponent {
-  public personName?: string;
-  public quote?: string;
-  public showCreatePersonControl: boolean = false;
-  public showGetPeopleControl: boolean = false;
+  public showGetPeopleControl$?: Observable<boolean>;
+  public showCreatePersonControl$?: Observable<boolean>;
 
   constructor(private appService: AppService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.showGetPeopleControl$ =
+      this.appService.showGetPeopleControl?.asObservable();
+    this.showCreatePersonControl$ =
+      this.appService.showCreatePersonControl?.asObservable();
+  }
 
   Create() {
-    this.showCreatePersonControl = !this.showCreatePersonControl;
+    this.appService.showCreatePersonControl?.next(true);
   }
 
   Get() {
-    this.showGetPeopleControl = !this.showGetPeopleControl;
-    console.log(this.showGetPeopleControl);
+    this.appService.showGetPeopleControl?.next(true);
   }
 }

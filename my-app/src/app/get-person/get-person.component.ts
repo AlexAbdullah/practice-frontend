@@ -36,6 +36,7 @@ export class GetPersonComponent implements OnInit {
   clearList(): void {
     this.people = [];
     this.showGetPeopleControl = false;
+    this.appService.showGetPeopleControl?.next(false);
   }
 
   showClearButton(): boolean {

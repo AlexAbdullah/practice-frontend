@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CreatePersonComponent {
   constructor(private appService: AppService) {}
+
   CreateNewPerson(person: Person) {
     this.appService
       .CreatePerson(person)
@@ -21,5 +22,9 @@ export class CreatePersonComponent {
       .subscribe((response) => {
         console.log('Person created!', response);
       });
+  }
+
+  Clear(): void {
+    this.appService.showCreatePersonControl?.next(false);
   }
 }

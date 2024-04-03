@@ -2,10 +2,10 @@
 <input type="button" value="Create a user" (click)="Create()" />
 <input type="button" value="Get all users" (click)="Get()" />
 
-<ng-container *ngIf="showGetPeopleControl">
+<ng-container *ngIf="showGetPeopleControl$ | async">
   <app-get-person></app-get-person>
 </ng-container>
 
-<ng-container *ngIf="showCreatePersonControl">
+<ng-container *ngIf="showCreatePersonControl$ | async">
   <app-create-person></app-create-person>
 </ng-container>
